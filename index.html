@@ -33,17 +33,19 @@
             return value;
         }
 
-        var now = new Date();
-        var seconds = now.getSeconds(); //秒を取得
-        seconds = addZero(seconds);
+        document.getElementById('start_stop').addEventListener('click', function () {
+            var now = new Date();
+            var seconds = now.getSeconds(); //秒を取得
+            seconds = addZero(seconds);
 
-        var minutes = now.getMinutes();//分を取得
-        minutes = addZero(minutes);
+            var minutes = now.getMinutes();//分を取得
+            minutes = addZero(minutes);
 
-        var hours = now.getHours();//時を取得
-        hours = addZero(hours);
+            var hours = now.getHours();//時を取得
+            hours = addZero(hours);
 
-        document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
+            document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
+        });
     </script>
 </body>
 
