@@ -25,27 +25,16 @@
     </div>
 
     <script>
-        //0を追加する
-        var addZero = function (value) {
-            if (value < 10) {
-                value = '0' + value;
-            }
-            return value;
-        }
-
         document.getElementById('start_stop').addEventListener('click', function () {
-            var now = new Date();
-            var seconds = now.getSeconds(); //秒を取得
-            seconds = addZero(seconds);
+            var start = new Date();
 
-            var minutes = now.getMinutes();//分を取得
-            minutes = addZero(minutes);
-
-            var hours = now.getHours();//時を取得
-            hours = addZero(hours);
-
-            document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
+            setInterval(goTimer, 10);
         });
+
+        var goTimer = function () {
+            var now = new Date();
+            document.getElementById('timer').innerHTML = now.getTime();
+        }
     </script>
 </body>
 
