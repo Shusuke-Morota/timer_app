@@ -33,14 +33,31 @@
             setInterval(goTimer, 10); //setIntervalは指定した関数をどんどん呼び出すex)動き続ける何か
         });
 
+        var addZero = function (value) {
+            if (value < 10) {
+                value = '0' + value;
+            }
+            return value;
+        }
+
         var goTimer = function () {
             var now = new Date();
 
             var milli = now.getTime() - start.getTime();
             var seconds = Math.floor(milli / 1000);
             //Math.floorは小数点以下を切るメソッドである。
+            var minutes = Math.floor(seconds / 60);
+            var hours = Math.floor(minutes / 60);
 
-            document.getElementById('timer').innerHTML = seconds;
+            seconds = seconds - minutes * 60;
+            minutes = minutes - hours * 60;
+
+            hours = addZero(hours);
+            minutes = addZero(minutes);
+            seconds = addZero(seconds);
+
+
+            document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
         }
     </script>
 </body>
