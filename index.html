@@ -25,15 +25,22 @@
     </div>
 
     <script>
-        document.getElementById('start_stop').addEventListener('click', function () {
-            var start = new Date();
+        var start;
 
-            setInterval(goTimer, 10);
+        document.getElementById('start_stop').addEventListener('click', function () {
+            start = new Date();
+
+            setInterval(goTimer, 10); //setIntervalは指定した関数をどんどん呼び出すex)動き続ける何か
         });
 
         var goTimer = function () {
             var now = new Date();
-            document.getElementById('timer').innerHTML = now.getTime();
+
+            var milli = now.getTime() - start.getTime();
+            var seconds = Math.floor(milli / 1000);
+            //Math.floorは小数点以下を切るメソッドである。
+
+            document.getElementById('timer').innerHTML = seconds;
         }
     </script>
 </body>
